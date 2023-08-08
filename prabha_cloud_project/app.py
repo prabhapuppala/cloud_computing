@@ -28,7 +28,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 app.secret_key = "your_secret_key"
 db = SQLAlchemy(app)
-db.create_all()
+#db.create_all()
 
 # Define User class
 class User(db.Model):
@@ -192,5 +192,7 @@ def upload_file_post():
         return redirect(url_for('home_page'))
 
 
-if __name__ == '__main__':
-    app.run( debug=True)
+if __name__ == '__main__'
+    with app.app_context():
+        db.create_all()
+        app.run(debug=True)e)
